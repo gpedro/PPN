@@ -20,6 +20,7 @@
 ##Libraries e Helpers
 - Angular-UI-Router
 - jQuery
+- Mongoose
 
 ##Preprocessador CSS
 - Sass
