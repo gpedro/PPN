@@ -14,6 +14,9 @@
 ##Framework de Front-End
 - AngularJS
 
+##Websockets
+- Socket.io
+
 ##Libraries e Helpers
 - Angular-UI-Router
 - jQuery
