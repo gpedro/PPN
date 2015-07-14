@@ -1,0 +1,26 @@
+{
+  "name": "PPN-Front",
+  "version": "0.0.1",
+  "homepage": "https://github.com/alissonbovenzo/PPN",
+  "description": "Front-end PPN",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Alisson Desandro Bovenzo <adbovenzo@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.2",
+    "jquery": "~2.1.4",
+    "angular-ui-router": "~0.2.15"
+  }
+}
