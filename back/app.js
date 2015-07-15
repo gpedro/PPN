@@ -6,12 +6,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var _config = require('./config/db');
 
-var routes = require('./routes/index');
+
+var main = require('./modules/main/index.js');
+var expose = require('./modules/main/expose.js');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'modules'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -22,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../front')));
 
-app.use('/', routes);
+app.use('/', main);
+app.use('/expose', expose);
 
 var api = {};
 
