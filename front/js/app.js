@@ -1,5 +1,5 @@
 angular.module('PPN', [
-  'ui-router'
+  'ui-router',
   'users'
 ])
 
