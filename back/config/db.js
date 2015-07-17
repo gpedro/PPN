@@ -1,11 +1,29 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+  db = null,
+  url = 'mongodb://localhost/PPN';
 
-mongoose.connect('mongodb://localhost/PPN');
+mongoose.connect(url);
 
-var User = mongoose.model('User', { name: {type:String, default:"Fulano"} });
+db = mongoose.connection;
 
-var user = new User({ name: 'Alisson' });
-user.save(function (err) {
-  if (err) // ...
-  console.log('erro :()');
+db.on('connected', function(err){
+  if(err){
+     console.log('error',err);
+  }
+  console.log('Conectado em :', url);
 });
+
+db.on('disconnected',function(err){
+  if(err){
+    console.log('error', err);
+  }
+});
+
+process.on ('SIGINT', function () {
+  db.close (function () {
+    console.log ('Conexão encerrada após aplicação ser encerrada.');
+    process.exit (0);
+  });
+});
+
+module.exports = db;

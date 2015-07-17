@@ -1,4 +1,13 @@
 extends layout
 
 block body
-  |teste
+  div.login-panel
+    form(action='/auth',method='post')
+      div.username
+        label Username
+        input(type='text',name="username")
+      div.password
+        label Password 
+        input(type='password',name='password')
+      div.enviar
+        input(type='submit',value='logar')
