@@ -1,5 +1,3 @@
-var express = require('express');
-var router = express.Router();
 var _ctrl = require('./controllers');
 
 var rotas = [
@@ -25,5 +23,7 @@ var rotas = [
   }
 ];
 
-routeMaker(rotas, router);
-module.exports = router;
+module.exports = function (router) {
+  routeMaker(rotas, router);
+  return router;
+};

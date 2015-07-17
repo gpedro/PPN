@@ -11,6 +11,7 @@ var main = require('./modules/main/routes.js');
 var expose = require('./modules/main/expose.js');
 
 var app = express();
+var router = express.Router();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'modules'));
@@ -31,7 +32,7 @@ app.use('/expose', expose);
 // app.use('/auth', auth);
 
 var api = {};
-api.users = require('./modules/users/api/routes');
+api.users = require('./modules/users/api/routes')(router);
 
 app.use('/api/users',api.users)
 
