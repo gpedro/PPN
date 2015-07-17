@@ -31,7 +31,7 @@ app.use('/expose', expose);
 // app.use('/auth', auth);
 
 var api = {};
-api.users = require('./modules/users/api/routes');
+api.users = require('./modules/users/api/routes')(app);
 
 app.use('/api/users',api.users)
 

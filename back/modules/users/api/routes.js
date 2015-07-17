@@ -2,28 +2,11 @@ var express = require('express');
 var router = express.Router();
 var _ctrl = require('./controllers');
 
-var rotas = [
-  {
-    method:'get',
-    cb:_ctrl.getAll,
-    url:'/'
-  },
-  {
-    method:'get',
-    cb:_ctrl.getOne,
-    url:'/:id'
-  },
-  {
-    method:'put',
-    cb: _ctrl.createUser,
-    url:'/'
-  },
-  {
-    method:'post',
-    cb:_ctrl.editUser,
-    url:'/:id'
-  }
-];
+router.get('/'     , _ctrl_getAll);
+router.get('/:id'  , _ctrl.getOne);
+router.put('/'     , _ctrl.createUser);
+router.post('/:id' , _ctrl.editUser);
 
-routeMaker(rotas, router);
-module.exports = router;
+module.exports = function (app) {
+  app.use('/users', router);
+};
